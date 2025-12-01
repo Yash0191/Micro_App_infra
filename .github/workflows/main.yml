@@ -1,18 +1,32 @@
-name : "MicroTodo App Infra"
+name: "MicroTodo App Infra"
 
 on:
   push:
-   branch:
-   - main
-     
-permission:
-  id_token: write
-  content: read
+    branches:
+      - main
+
+permissions:
+  id-token: write
+  contents: read
 
 jobs:
-  terraform-init-plan
-  runs_on:MyRunner
+  terraform-init-plan:
+    runs-on: MyRunner
 
-  # steps:
-  # - name: Checkout
-  #   uses: actions/checkout@v6.0.0
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Azure Login
+        uses: Azure/login@v2.3.0
+        with:
+          subscription-id: "49c47d3a-ee46-467f-b8ac-06b906f03845"
+          
+      # - name: Terraform init azurerm backend
+      #   uses: ahmedig/terraform-azurerm-backend@v4
+      #   with:
+      #    tf_working_directory: 
+         
+
+        
+      

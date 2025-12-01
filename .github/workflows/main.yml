@@ -13,6 +13,6 @@ jobs:
   terraform-init-plan
   runs_on:MyRunner
 
-  steps:
-  - name: Checkout
-    uses: actions/checkout@v6.0.0
+  # steps:
+  # - name: Checkout
+  #   uses: actions/checkout@v6.0.0
